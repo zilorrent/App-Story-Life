@@ -98,6 +98,11 @@ bool LinkedList<T>::isEmpty()
 template <class T>
 void LinkedList<T>::display()
 {
+  if (this->isEmpty())
+  {
+    std::cout << "Linked List is empty!" << std::endl;
+    return;
+  }
   Node<T> *curr = Head;
   for (int i = 0; i < this->count; i++)
   {
