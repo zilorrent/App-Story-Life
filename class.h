@@ -233,4 +233,114 @@ int Stack<T>::getSize()
   return this->count;
 }
 
+template <class T>
+class Queue
+{
+private:
+  Node<T> *Front;
+  Node<T> *Rear;
+  int count = 0;
+
+public:
+  Queue();
+  Queue(T val);
+  ~Queue();
+  bool isEmpty();
+  bool enQueue(T val);
+  T deQueue();
+  void display();
+};
+
+template <class T>
+Queue<T>::Queue()
+{
+  Front = NULL;
+  Rear = NULL;
+  this->count = 0;
+}
+
+template <class T>
+Queue<T>::Queue(T val)
+{
+  Node<T> *temp = new Node<T>(val);
+  Front = temp;
+  Rear = temp;
+  this->count++;
+}
+
+template <class T>
+Queue<T>::~Queue()
+{
+  Node<T> *curr = Front;
+  while (!isEmpty())
+  {
+    Front = curr->next;
+    delete curr;
+    this->count--;
+  }
+}
+
+template <class T>
+bool Queue<T>::isEmpty()
+{
+  if (this->count == 0)
+  {
+    return 1;
+  }
+  return 0;
+}
+
+template <class T>
+bool Queue<T>::enQueue(T val)
+{
+  Node<T> *temp = new Node<T>(val);
+  if (this->isEmpty())
+  {
+    Front = temp;
+    Rear = temp;
+    this->count++;
+    return 1;
+  }
+  else
+  {
+    Rear->next = temp;
+    Rear = temp;
+    this->count++;
+    return 1;
+  }
+}
+
+template <class T>
+T Queue<T>::deQueue()
+{
+  T data;
+  if (this->isEmpty())
+  {
+    std::cout << "Can not deQueue. Queue is empty!" << std::endl;
+    return data;
+  }
+
+  Node<T> *temp = Front;
+  data = temp->data;
+  Front = Front->next;
+  this->count--;
+  delete temp;
+  return data;
+}
+
+template <class T>
+void Queue<T>::display()
+{
+  Node<T> *temp = Front;
+  if (this->isEmpty())
+  {
+    std::cout << "Queue is Empty!" << std::endl;
+  }
+  for (int i = 0; i < this->count; i++)
+  {
+    std::cout << temp->data << std::endl;
+    temp = temp->next;
+  }
+}
+
 #endif //!h_Stack
