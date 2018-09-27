@@ -232,6 +232,10 @@ int Stack<T>::getSize()
 {
   return this->count;
 }
+#endif //!h_Stack
+
+#ifndef h_Queue
+#define h_Queue
 
 template <class T>
 class Queue
@@ -342,5 +346,4 @@ void Queue<T>::display()
     temp = temp->next;
   }
 }
-
-#endif //!h_Stack
+#endif //!h_Queue
