@@ -3,7 +3,3 @@
 ## [README.md](#readme.md) will be published soon
 
 ## Try to use Git on VS Code
-
-## Change README on GitHub.com
-
-### and i do it again, test speed
