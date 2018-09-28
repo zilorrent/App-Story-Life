@@ -6,4 +6,4 @@
 
 ## I want have a notification on Slack
 
-## But it dont notification about push to GItHub
+## But it dont notification about push to GitHub
